@@ -3,6 +3,7 @@ package com.avijitsamanta.noteapp.entities
 import androidx.room.*
 import org.jetbrains.annotations.NotNull
 import java.io.Serializable
+import java.util.*
 
 @Entity(tableName = "notes")
 class Note : Serializable {
@@ -28,8 +29,8 @@ class Note : Serializable {
     @ColumnInfo(name = "web_link")
     var webLink: String? = null
 
-    @ColumnInfo(name = "only_date")
-    var onlyDate: String? = null
+    @ColumnInfo(name = "time_stamp")
+    var timeStamp: Date? = null
 
     @NotNull
     override fun toString(): String {

@@ -155,9 +155,7 @@ class CreateNoteActivity : AppCompatActivity() {
         note.dateTime = textDateTime.text.toString().trim()
         note.myColor = selectNoteColor
         note.imagePath = selectedImagePath
-        note.onlyDate = SimpleDateFormat("dd-MM-yyyy hh:mm.ss.SSS", Locale.getDefault()).format(
-            Date()
-        )
+        note.timeStamp = Date()
         if (layoutWebURL.visibility == View.VISIBLE) {
             note.webLink = textWebURL.text.toString().trim()
         }
