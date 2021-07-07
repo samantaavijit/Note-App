@@ -24,7 +24,6 @@ class NodesAdopter(
     RecyclerView.Adapter<NodesAdopter.NoteViewHolder>() {
 
     private var noteList = ArrayList<Note>()
-    private lateinit var timer: Timer
     private val noteSource = ArrayList<Note>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
@@ -79,30 +78,6 @@ class NodesAdopter(
         val noteContent: TextView = itemView.textNoteContentItem
         val layoutNote: LinearLayout = itemView.layoutNoteItem
         val imageNote: RoundedImageView = itemView.imageNoteItem
-    }
-
-    private fun searchNotes(key: String) {
-        timer = Timer()
-        timer.schedule(
-            object : TimerTask() {
-                override fun run() {
-                    if (key.trim().isEmpty()) {
-                        noteList = noteSource
-                    } else {
-                        val temp = ArrayList<Note>()
-                        for (note in noteSource) {
-                            if (note.title?.toLowerCase(Locale.ROOT)
-                                    ?.contains(key)!! || note.noteText?.toLowerCase(Locale.ROOT)
-                                    ?.contains(key)!!
-                            ) {
-                                temp.add(note)
-                            }
-                        }
-                        noteList = temp
-                    }
-                }
-            }, 500
-        )
     }
 
 }
